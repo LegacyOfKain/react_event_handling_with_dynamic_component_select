@@ -1,4 +1,4 @@
-import { ComponentType, useState } from "react";
+import { ComponentType, FC, useState } from "react";
 import "./App.css";
 
 import * as ExampleComponents from "./components/ExampleComponents";
@@ -8,7 +8,7 @@ function App() {
   const [selectedComponent, setSelectedComponent] = useState<string>("");
 
   // Create a mapping of component names to their respective components
-  const components: Record<string, ComponentType<any>> = {
+  const components: Record<string, ComponentType<FC>> = {
     HelloWorld: ExampleComponents.HelloWorld,
     TextOnChange: ExampleComponents.TextOnChange,
     UserInfo: ExampleComponents.UserInfo,
@@ -16,7 +16,7 @@ function App() {
   };
 
   // Dynamically render the selected component
-  const DynamicComponent = selectedComponent
+  const DynamicComponent: ComponentType<FC> | null = selectedComponent
     ? components[selectedComponent]
     : null;
 
