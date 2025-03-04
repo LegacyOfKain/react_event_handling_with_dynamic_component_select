@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { ComponentType, useState } from "react";
 import "./App.css";
 
 import * as ExampleComponents from "./components/ExampleComponents";
@@ -8,9 +8,9 @@ function App() {
   const [selectedComponent, setSelectedComponent] = useState<string>("");
 
   // Create a mapping of component names to their respective components
-  const components: Record<string, React.ComponentType<any>> = {
+  const components: Record<string, ComponentType<any>> = {
     HelloWorld: ExampleComponents.HelloWorld,
-    Counter: ExampleComponents.Counter,
+    TextOnChange: ExampleComponents.TextOnChange,
     UserInfo: ExampleComponents.UserInfo,
     ColorPicker: ExampleComponents.ColorPicker,
   };

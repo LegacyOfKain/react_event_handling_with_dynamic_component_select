@@ -1,18 +1,22 @@
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 
 export const HelloWorld = () => {
   return <div className="example-component">Hello, World!</div>;
 };
 
-export const Counter = () => {
-  const [count, setCount] = useState(0);
+export const TextOnChange = () => {
+  const [form, setForm] = useState({ fullname: "Amar Kaushik", age: 25 });
+
+  function handleChange(e: ChangeEvent<HTMLInputElement>) {
+    setForm({ ...form, [e.target.name]: e.target.value });
+    console.log(e);
+  }
 
   return (
     <div className="example-component">
-      <h3>Counter Component</h3>
-      <p>Count: {count}</p>
-      <button onClick={() => setCount(count + 1)}>Increment</button>
-      <button onClick={() => setCount(count - 1)}>Decrement</button>
+      <h3>Text OnChange Component</h3>
+      <input value={form.fullname} onChange={handleChange} />
+      <input value={form.age} onChange={handleChange} />
     </div>
   );
 };

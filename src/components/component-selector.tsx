@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { Component, FC, useState } from "react";
 import "./ComponentSelector.css";
 
 // Define the props interface for the ComponentSelector
 interface ComponentSelectorProps {
-  components: Record<string, React.ComponentType<any>>;
+  components: Record<string, Component<FC>>;
   onSelectComponent: (componentName: string) => void;
 }
 
